@@ -28,24 +28,6 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 15,
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "yKEo6Kv09Cdz",
-        "outputId": "aedbb1e5-b183-4bc1-f4cf-3ad01d9ac8c6"
-      },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "BFS Traversal:\n",
-            "ABC"
-          ]
-        }
-      ],
       "source": [
         "from collections import deque\n",
         "graph={\n",
@@ -66,6 +48,24 @@
         "    for neighbour in graph[node]:\n",
         "      if neighbour not in visited:\n",
         "        queue.append(neighbour)"
+      ],
+      "metadata": {
+        "id": "HAHnyzbkNPHd",
+        "outputId": "541c5ad1-012a-4263-bc8f-999dd53edfec",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "BFS Traversal:\n",
+            "ABC"
+          ]
+        }
       ]
     },
     {
@@ -90,10 +90,10 @@
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "LqLEF87h-U_A",
-        "outputId": "937d31f1-0250-4d07-8f30-a1b2a6e33afd"
+        "id": "9eXN2vGlNPX0",
+        "outputId": "6bb177d9-adb1-4196-e32f-ced11812d442"
       },
-      "execution_count": 16,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
