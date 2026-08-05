@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOJmkf9YTBgAsJA2wW6v/El",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pavandheeraj27560/AIT/blob/main/task-1%20bfs\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 15,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yKEo6Kv09Cdz",
+        "outputId": "aedbb1e5-b183-4bc1-f4cf-3ad01d9ac8c6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "BFS Traversal:\n",
+            "ABC"
+          ]
+        }
+      ],
+      "source": [
+        "from collections import deque\n",
+        "graph={\n",
+        "    'A':['B','C'],\n",
+        "    'B':[],\n",
+        "    'C':[],\n",
+        "}\n",
+        "visited=set()\n",
+        "queue=deque()\n",
+        "start='A'\n",
+        "queue.append(start)\n",
+        "print(\"BFS Traversal:\")\n",
+        "while queue:\n",
+        "  node=queue.popleft()\n",
+        "  if node not in visited:\n",
+        "    print(node,end=\"\")\n",
+        "    visited.add(node)\n",
+        "    for neighbour in graph[node]:\n",
+        "      if neighbour not in visited:\n",
+        "        queue.append(neighbour)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "graph={\n",
+        "    'A':['B','C'],\n",
+        "    'B':[],\n",
+        "    'C':[]\n",
+        "}\n",
+        "visited=set()\n",
+        "def dfs(node):\n",
+        "  if node not in visited:\n",
+        "    print(node,end=\"\")\n",
+        "    visited.add(node)\n",
+        "    for neighbour in graph[node]:\n",
+        "      dfs(neighbour)\n",
+        "print(\"DFS Traversal:\")\n",
+        "dfs('A')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LqLEF87h-U_A",
+        "outputId": "937d31f1-0250-4d07-8f30-a1b2a6e33afd"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DFS Traversal:\n",
+            "ABC"
+          ]
+        }
+      ]
+    }
+  ]
+}
