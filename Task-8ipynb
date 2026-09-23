@@ -1,0 +1,88 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMyzuZPR26iJIOnqFx01aiG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pavandheeraj27560/AIT/blob/main/Task-8ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kPmtBvqmbBD_",
+        "outputId": "6264da66-3b1b-4beb-d412-c50072ba101e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Attempting to solve N-Queens for N=4\n",
+            "Solution found:\n",
+            ".Q..\n",
+            "...Q\n",
+            "Q...\n",
+            "..Q.\n",
+            "\n"
+          ]
+        }
+      ],
+      "source": [
+        "N = 4\n",
+        "board = [-1] * N\n",
+        "\n",
+        "def safe(row, col):\n",
+        "  for i in range(row):\n",
+        "    if board[i] == col or abs(board[i] - col) == abs(i - row):\n",
+        "      return False\n",
+        "  return True\n",
+        "\n",
+        "def print_board(board):\n",
+        "  for r in range(N):\n",
+        "    print(\"\".join(\"Q\" if board[r] == c else \".\" for c in range(N)))\n",
+        "  print()\n",
+        "\n",
+        "def solve(row):\n",
+        "  if row == N:\n",
+        "    print(\"Solution found:\")\n",
+        "    print_board(board)\n",
+        "    return True\n",
+        "\n",
+        "  for col in range(N):\n",
+        "    if safe(row, col):\n",
+        "      board[row] = col\n",
+        "      if solve(row + 1):\n",
+        "        return True\n",
+        "      board[row] = -1\n",
+        "  return False\n",
+        "print(f\"Attempting to solve N-Queens for N={N}\")\n",
+        "if not solve(0):\n",
+        "  print(\"No solution exists for the given N.\")"
+      ]
+    }
+  ]
+}
